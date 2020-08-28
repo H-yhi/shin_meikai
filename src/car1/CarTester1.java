@@ -1,0 +1,15 @@
+package car1;
+
+public class CarTester1 {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Car vitz = new Car("ビッツ", 1660, 1500,3640, 40.0);
+		Car march = new Car("マーチ", 1660, 1525,3695, 41.0);
+
+		vitz.putSpec();
+		System.out.println();
+		march.putSpec();
+	}
+
+}
