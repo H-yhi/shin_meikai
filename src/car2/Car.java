@@ -3,15 +3,16 @@ package car2;
 import day3.Day;
 
 public class Car {
-	private String name;
-	private int width;
-	private int height;
-	private int length;
-	private double x;
-	private double y;
-	private double fuel;
-	private Day purchaseDay;
+	private String name; // 名前
+	private int width; // 幅
+	private int height; // 高さ
+	private int length; // 長さ
+	private double x; // 現在位置X座標
+	private double y; // 現在位置Y座標
+	private double fuel; // 残り燃料
+	private Day purchaseDay; // 購入日
 
+	// コンストラクタ //
 	public Car(String name, int width, int height, int length, double fuel, Day purchaseDay) {
 		this.name = name;
 		this.width = width;
@@ -22,29 +23,31 @@ public class Car {
 		this.purchaseDay = new Day(purchaseDay);
 	}
 
-	public double getX() {return x;}
-	public double getY() {return y;}
-	public double getFuel() {return fuel;}
+	public double getX() {return x;} // 現在位置X座標を取得
+	public double getY() {return y;} // 現在位置Y座標を取得
+	public double getFuel() {return fuel;} // 残り燃料を取得
 
-	public Day getPurchaseDay() {
+	public Day getPurchaseDay() { // 購入日を取得
 		return new Day(purchaseDay);
 	}
 
+	// スペック表示 //
 	public void putSpec() {
 		System.out.println("名前：" + name);
 		System.out.println("車幅：" + width + "mm");
 		System.out.println("車高：" + height + "mm");
 		System.out.println("車長：" + length + "mm");
 	}
+
 	// X方向にdx・Y方向にdy移動 //
 	public boolean move(double dx, double dy) {
-		double dist = Math.sqrt(dx * dx + dy * dy);
+		double dist = Math.sqrt(dx * dx + dy * dy); // 移動距離
 		if(dist > fuel)
-			return false;
+			return false; // 移動できない・・・燃料不足
 		else
-			fuel -= dist;
+			fuel -= dist; // 移動距離の分だけ燃料が減る
 			x += dx;
 			y += dy;
-			return true;
+			return true; // 移動完了
 	}
 }
